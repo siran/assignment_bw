@@ -7,7 +7,7 @@ require 'Lib/Balance.php';
 if (empty($argv[1])) {
     echo "Please provide an input string as a first parameter. Ex.: php balance.php 'string_to_{check}}' should " .
         "output: 17";
-    exit();
+    exit(1);
 }
 
 $str = $argv[1];
