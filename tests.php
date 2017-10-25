@@ -1,13 +1,21 @@
 <?php
+require "Lib/Balance.php";
+
 use PHPUnit\Framework\TestCase;
 
 class StackTest extends TestCase
 {
+    function setUp()
+    {
+        $this->Balance = new Balance\Balance();
+    }
+
     public function test_string_OK()
     {
+
         $string = "string OK";
         $expected = "-1";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
@@ -16,7 +24,7 @@ class StackTest extends TestCase
     {
         $string = "{}}";
         $expected = "2";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
@@ -25,7 +33,7 @@ class StackTest extends TestCase
     {
         $string = "{}}}";
         $expected = "2";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
@@ -34,7 +42,7 @@ class StackTest extends TestCase
     {
         $string = "{{{{}}}";
         $expected = "0";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
@@ -43,7 +51,7 @@ class StackTest extends TestCase
     {
         $string = "{}{}{{{{}}}";
         $expected = "4";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
@@ -52,7 +60,7 @@ class StackTest extends TestCase
     {
         $string = "{}{}{{{{}}}{}";
         $expected = "4";
-        $output = exec('php balance.php "'.$string.'"');
+        $output = $this->Balance->check_balance($string);
 
         $this->assertEquals($output, $expected);
     }
