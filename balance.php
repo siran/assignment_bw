@@ -13,7 +13,7 @@ if (empty($argv[1])) {
 $str = $argv[1];
 $Balance = new Balance\Balance();
 
-echo $balanced = $Balance->check_balance($str);
+echo $balanced = $Balance->check_balance($str) ."\n";
 
 
 
