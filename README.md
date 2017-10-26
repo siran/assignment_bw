@@ -1,4 +1,4 @@
-# Beeswax - Assignment
+# Assignment
 
 ## How to run
 
